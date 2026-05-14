@@ -24,7 +24,7 @@ Please check [`_data/README.md`](_data/README.md) to download multi-view indoor 
 We tested the code on Ubuntu 22.04 with NVIDIA RTX 4090, Driver 570.153.02, CUDA 12.8, nvcc 12.8, and OptiX 7.7. For machine specification, please check [`_docs/notes.md`](_docs/notes.md). The code should also work on other NVIDIA RTX cards with higher CUDA versions.
 
 ```sh
-# (optionally) This adds /lib/x86_64-linux-gnu/libnvoptix.so.1 and /usr/share/nvidia/nvoptix.bin.
+# (optionally) `libgl-dev` fixes "OSError: libGL.so.1: cannot open shared object file: No such file or directory". `libnvidia-gl-570` adds `/lib/x86_64-linux-gnu/libnvoptix.so.1` and `/usr/share/nvidia/nvoptix.bin`, fixing "RuntimeError: Could not initialize OptiX!".
 apt install libgl-dev libnvidia-gl-570
 ```
 
@@ -68,7 +68,6 @@ _scripts/light-baking.sh
 
 ## Work in Progress
 
-- [ ] Upload EFT data.
 - [ ] Add tracer usage examples.
 - [ ] Release math details in the tracer.
 - [ ] Tidy up data capture process.

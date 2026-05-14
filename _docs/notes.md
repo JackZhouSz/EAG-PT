@@ -30,7 +30,7 @@ apt list --installed | grep libnvidia-gl
 
 ## About opencv-python
 
-You can just use the package `opencv-python` instead of `opencv-python-headless` with the same version. On our machine, these libraries should be installed:
+You can use the package `opencv-python` instead of `opencv-python-headless` with the same version. On our machine, these libraries should be installed:
 
 ```sh
 apt install libgl-dev
