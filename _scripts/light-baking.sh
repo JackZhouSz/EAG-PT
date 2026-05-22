@@ -18,7 +18,7 @@ fi
 
 
 # First render all path-traced images in trainset.
-python scene-editing-and-rendering.py \
+python editing-and-rendering.py \
   --NVS_DATASET_PATH ${NVS_DATASET} --EAG_PLY_PATH ${EAG_WITH_OPTIMIZED_ALBEDOS_PLY_PATH} \
   --I_SCENE_EDITING_SCENARIO ${I_SCENE_EDITING_SCENARIO} \
   --OUTPUT_FOLDER_SUFFIX ${SCENE_COLLECTION}-${SCENE_NAME}_renders_editing-scenario-${I_SCENE_EDITING_SCENARIO}_trainset \

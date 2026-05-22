@@ -24,7 +24,9 @@ Please check [`_data/README.md`](_data/README.md) to download multi-view indoor 
 We tested the code on Ubuntu 22.04 with NVIDIA RTX 4090, Driver 570.153.02, CUDA 12.8, nvcc 12.8, and OptiX 7.7. For machine specification, please check [`_docs/notes.md`](_docs/notes.md). The code should also work on other NVIDIA RTX cards with higher CUDA versions.
 
 ```sh
-# (optionally) `libgl-dev` fixes "OSError: libGL.so.1: cannot open shared object file: No such file or directory". `libnvidia-gl-570` adds `/lib/x86_64-linux-gnu/libnvoptix.so.1` and `/usr/share/nvidia/nvoptix.bin`, fixing "RuntimeError: Could not initialize OptiX!".
+# (optionally)
+# `libgl-dev` fixes "OSError: libGL.so.1: cannot open shared object file: No such file or directory".
+# `libnvidia-gl-570` adds `/lib/x86_64-linux-gnu/libnvoptix.so.1` and `/usr/share/nvidia/nvoptix.bin`, fixing "RuntimeError: Could not initialize OptiX!".
 apt install libgl-dev libnvidia-gl-570
 ```
 
@@ -55,14 +57,20 @@ cd EAG-PT/
 
 # Reconstruct the scene.
 _scripts/0-and-1-reconstruction.sh
+
 # Edit and render the scene.
 _scripts/editing-and-rendering.sh
+
 # Bake light on edited scene.
 _scripts/light-baking.sh
 ```
 
 - Scenes, scenarios, parameters could be manually changed in the script.
+    - e.g. Change to `Blender-assets` `lightball/plane` in  [`_scripts/0-and-1-reconstruction.sh`](_scripts/0-and-1-reconstruction.sh) to prepare for scene editing.
+    - e.g. Change and try out other editing scenarios in [`_scripts/editing-and-rendering.sh`](editing-and-rendering.sh).
 - Scene editing may require some assets from other reconstructed scenes.
+    - For scene editing scenarios provided by us: Most scenes need reconstructed `Blender-assets`; `F-classroom` needs reconstructed `E-furnishedroom`; `E-emptyroom` needs reconstructed `E-kitchen`.
+    - Feel free to create your new scene editing scenarios in [`editing-and-rendering.py`](editing-and-rendering.py)!
 - Results will be saved in [`_output/`](_output/).
 - For viewing EXR files, use the VS Code extension [`VERIV`](https://marketplace.visualstudio.com/items?itemName=mcrespo.veriv) or local software [`tev`](https://github.com/Tom94/tev).
 
